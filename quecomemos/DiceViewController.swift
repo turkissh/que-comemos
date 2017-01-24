@@ -17,7 +17,7 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
         super.viewDidLoad()
         cleanNavBar()
         
-        if loadMeals() == nil {
+        if meals.isEmpty && nil == loadMeals() {
             print("Initializating meals")
             loadSampleMeals()
             saveMeals()
@@ -28,11 +28,6 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
     @IBAction func throwDices(_ sender: UITapGestureRecognizer) {
@@ -41,15 +36,14 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
             self.diceImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
         }
         
-        UIView.animate(withDuration: 1, delay: 0.45, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 1, delay: 0.40, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.diceImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI * 2))
-        }, completion: { finished in self.showRandomMeal() })
+        }) { isFinished in self.showRandomMeal() }
         
     }
     
     func showRandomMeal() {
         var meals = loadMeals()
-        
         if (meals != nil) {
             print("meals: " +  String(meals!.count))
             let randomIndex = Int.getRandom(max: meals!.count)
@@ -69,15 +63,12 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
             
             //Show alert
             self.present(alert, animated: true, completion: nil)
-        } else {
-            print("There are no meals")
         }
-
     }
     
     func loadSampleMeals(){
-        let mealExample = Meal(name: "milanesa", rating: 4, image: UIImage(named: "milanesa"))!
-        let mealExample2 = Meal(name: "hamburguesa", rating: 5, image: UIImage(named: "hamburguesa"))!
+        let mealExample = Meal(name: "milanesa", image: UIImage(named: "milanesa"))!
+        let mealExample2 = Meal(name: "hamburguesa", image: UIImage(named: "hamburguesa"))!
         
         meals += [mealExample,mealExample2]
     }

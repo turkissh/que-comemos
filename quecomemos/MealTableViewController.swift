@@ -22,7 +22,6 @@ class MealTableViewController: UITableViewController {
         super.viewDidLoad()
         
         initButtons()
-        
         self.navigationItem.rightBarButtonItem = editingButton
         
         if let savedMeals = loadMeals() {
@@ -39,13 +38,8 @@ class MealTableViewController: UITableViewController {
         addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(callAddMeal))
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -60,12 +54,10 @@ class MealTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MealTableViewCell
         let meal = meals[indexPath.row]
 
-        cell.mealName.text = meal.name
+        cell.mealName.text = meal.name.capitalized
         cell.mealImage.image = meal.image
-        cell.mealRating.rating = meal.rating
         
         return cell
-        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -73,7 +65,6 @@ class MealTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
         if editingStyle == .delete {
             meals.remove(at: indexPath.row)
             //Saves updated meals
@@ -87,24 +78,18 @@ class MealTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
             //Checks if there was a row selected
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                
                 //Updates existing meal
                 meals[selectedIndexPath.row] = meal
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
-                
             } else {
-                
                 //Add a new meal
                 let newIndexPath = IndexPath(item: meals.count, section: 0)
                 meals.append(meal)
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
-                
             }
-            
             //Saves meals
             saveMeals()
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -121,14 +106,11 @@ class MealTableViewController: UITableViewController {
     }
     
     func showEditing(sender: UIBarButtonItem){
-        if(self.tableView.isEditing == true)
-        {
+        if(self.tableView.isEditing == true) {
             self.tableView.isEditing = false
             self.navigationItem.rightBarButtonItem?.title = "Edit"
             self.navigationItem.leftBarButtonItem = backButton
-        }
-        else
-        {
+        } else {
             self.tableView.isEditing = true
             self.navigationItem.rightBarButtonItem?.title = "Done"
             self.navigationItem.leftBarButtonItem = addButton

@@ -11,19 +11,11 @@ import UIKit
 class MealTableViewCell: UITableViewCell {
 
     //MARK: Properties
-    @IBOutlet weak var mealName: UILabel!
+    @IBOutlet weak var mealName: UILabel! {
+        willSet {
+            newValue.text = newValue.text?.capitalized
+        }
+    }
     @IBOutlet weak var mealImage: UIImageView!
-    @IBOutlet weak var mealRating: RatingControl!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

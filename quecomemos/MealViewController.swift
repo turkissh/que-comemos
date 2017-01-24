@@ -12,7 +12,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     //MARK: Properties
     @IBOutlet weak var newFoodText: UITextField!
-    @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cleanButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -28,7 +27,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         if let editingMeal = self.meal {
             fillFieldsWithMeal(meal: editingMeal)
             self.cleanButton.isEnabled = false
-            navigationItem.title = "Editing"
+            navigationB.title = "Editing"
         } else {
             navigationItem.title = "Add meal"
         }
@@ -72,14 +71,12 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         if sender as! UIBarButtonItem == saveButton {
             let newMealName = newFoodText.text ?? "Comida"
             let newMealImage = photoImageView.image
-            let newMealRating = ratingControl.rating
             
-            meal = Meal(name: newMealName, rating: newMealRating, image: newMealImage)
+            meal = Meal(name: newMealName, image: newMealImage)
         }
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
         if isPresentingInAddMealMode {
@@ -129,7 +126,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     private func fillFieldsWithMeal(meal: Meal){
         newFoodText.text = meal.name
         photoImageView.image = meal.image!
-        ratingControl.rating = meal.rating
     }
     
 }

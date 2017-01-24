@@ -14,27 +14,24 @@ class Meal: NSObject, NSCoding {
     struct PropertyKey {
         static let nameKey = "name"
         static let photoKey = "photo"
-        static let ratingKey = "rating"
     }
     
     //MARK: Properties
     var name: String
-    var rating: Int
     var image: UIImage?
     
     //MARK: Save paths
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first
     static let ArchiveURL = DocumentsDirectory?.appendingPathComponent("meals")
     
-    init?(name: String, rating: Int, image: UIImage?) {
+    init?(name: String, image: UIImage?) {
         
         //Validation
-        if name.isEmpty || rating < 0 {
+        if name.isEmpty {
             return nil
         }
         
         self.name = name
-        self.rating = rating
         self.image = image
         
         super.init()
@@ -44,14 +41,12 @@ class Meal: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: PropertyKey.nameKey)
         aCoder.encode(image, forKey: PropertyKey.photoKey)
-        aCoder.encode(rating, forKey: PropertyKey.ratingKey)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! String
         let image = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as! UIImage
-        let rating = aDecoder.decodeInteger(forKey: PropertyKey.ratingKey) 
         
-        self.init(name: name, rating: rating, image: image)
+        self.init(name: name, image: image)
     }
 }

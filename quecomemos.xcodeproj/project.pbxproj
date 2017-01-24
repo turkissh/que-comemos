@@ -15,7 +15,6 @@
 		C82E37851DB06DF100AF0F6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82E37841DB06DF100AF0F6C /* Assets.xcassets */; };
 		C82E37881DB06DF100AF0F6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82E37861DB06DF100AF0F6C /* LaunchScreen.storyboard */; };
 		C82E37931DB06DF100AF0F6C /* quecomemosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E37921DB06DF100AF0F6C /* quecomemosTests.swift */; };
-		C84474EA1DB5C251001C33FF /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84474E91DB5C251001C33FF /* RatingControl.swift */; };
 		C84474EC1DB5CF42001C33FF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84474EB1DB5CF42001C33FF /* Meal.swift */; };
 		C8BBD9211DE297970025D8E1 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBD9201DE297970025D8E1 /* DiceViewController.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		C82E378E1DB06DF100AF0F6C /* quecomemosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quecomemosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82E37921DB06DF100AF0F6C /* quecomemosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quecomemosTests.swift; sourceTree = "<group>"; };
 		C82E37941DB06DF100AF0F6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C84474E91DB5C251001C33FF /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		C84474EB1DB5CF42001C33FF /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C8BBD9201DE297970025D8E1 /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +64,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C82CCD9F1E3700580019E63A /* MealDomain */ = {
+			isa = PBXGroup;
+			children = (
+				C84474EB1DB5CF42001C33FF /* Meal.swift */,
+			);
+			name = MealDomain;
+			sourceTree = "<group>";
+		};
+		C82CCDA01E3700870019E63A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				C80F13861DBEFF7100E139D0 /* MealTableViewCell.swift */,
+				C80F13881DBF00B400E139D0 /* MealTableViewController.swift */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
 		C82E37711DB06DF000AF0F6C = {
 			isa = PBXGroup;
 			children = (
@@ -87,13 +102,11 @@
 		C82E377C1DB06DF100AF0F6C /* quecomemos */ = {
 			isa = PBXGroup;
 			children = (
-				C80F13861DBEFF7100E139D0 /* MealTableViewCell.swift */,
+				C82CCDA01E3700870019E63A /* TableView */,
+				C82CCD9F1E3700580019E63A /* MealDomain */,
+				C8BBD9201DE297970025D8E1 /* DiceViewController.swift */,
 				C82E377F1DB06DF100AF0F6C /* MealViewController.swift */,
 				C82E37811DB06DF100AF0F6C /* Main.storyboard */,
-				C80F13881DBF00B400E139D0 /* MealTableViewController.swift */,
-				C84474EB1DB5CF42001C33FF /* Meal.swift */,
-				C84474E91DB5C251001C33FF /* RatingControl.swift */,
-				C8BBD9201DE297970025D8E1 /* DiceViewController.swift */,
 				C8789CD51E2F1900000702BE /* AppFiles */,
 			);
 			path = quecomemos;
@@ -228,7 +241,6 @@
 				C80F13891DBF00B400E139D0 /* MealTableViewController.swift in Sources */,
 				C8BBD9211DE297970025D8E1 /* DiceViewController.swift in Sources */,
 				C80F13871DBEFF7100E139D0 /* MealTableViewCell.swift in Sources */,
-				C84474EA1DB5C251001C33FF /* RatingControl.swift in Sources */,
 				C82E377E1DB06DF100AF0F6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
