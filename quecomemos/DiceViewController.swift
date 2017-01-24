@@ -45,7 +45,6 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
     func showRandomMeal() {
         var meals = loadMeals()
         if (meals != nil) {
-            print("meals: " +  String(meals!.count))
             let randomIndex = Int.getRandom(max: meals!.count)
             let randomMeal = meals![randomIndex]
             
@@ -67,8 +66,8 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
     }
     
     func loadSampleMeals(){
-        let mealExample = Meal(name: "milanesa", image: UIImage(named: "milanesa"))!
-        let mealExample2 = Meal(name: "hamburguesa", image: UIImage(named: "hamburguesa"))!
+        let mealExample = Meal(name: "Milanesa", image: UIImage(named: "milanesa"))!
+        let mealExample2 = Meal(name: "Hamburguesa", image: UIImage(named: "hamburguesa"))!
         
         meals += [mealExample,mealExample2]
     }

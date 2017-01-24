@@ -8,32 +8,45 @@
 
 import UIKit
 
+
+protocol MealTableViewControllerDelegate {
+    func updateMeal(meal: Meal)
+}
+
+
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     //MARK: Properties
     @IBOutlet weak var newFoodText: UITextField!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cleanButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
     
-    
+    var saveButton: UIBarButtonItem!
     var meal: Meal?
+    var delegate: MealTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createSaveButton()
         newFoodText.delegate = self
         
         //Preload meal if comes from segue
         if let editingMeal = self.meal {
             fillFieldsWithMeal(meal: editingMeal)
             self.cleanButton.isEnabled = false
-            navigationB.title = "Editing"
+            navigationItem.title = "Editing"
         } else {
             navigationItem.title = "Add meal"
         }
         checkValidMealName()
     }
 
+    //MARK: Button
+    func createSaveButton(){
+        saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(saveMeal))
+        navigationItem.rightBarButtonItem = saveButton
+    }
+    
     //MARK: UITextFiledDelegate
     
     func checkValidMealName(){
@@ -61,31 +74,29 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         photoImageView.image = selectedImage
         dismiss(animated: true, completion: nil)
     }
     
     //MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if sender as! UIBarButtonItem == saveButton {
-            let newMealName = newFoodText.text ?? "Comida"
-            let newMealImage = photoImageView.image
+    func saveMeal() {
+        let newMealName = newFoodText.text!
+        let newMealImage = photoImageView.image
             
-            meal = Meal(name: newMealName, image: newMealImage)
-        }
-    }
-    
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        meal = Meal(name: newMealName, image: newMealImage)
+        delegate!.updateMeal(meal: meal!)
+        
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
         if isPresentingInAddMealMode {
-                dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }else{
             navigationController!.popViewController(animated: true)
         }
-        
+
     }
+    
     
     //MARK: Actions
     @IBAction func cleanInfo(_ sender: UIButton) {
@@ -94,7 +105,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             photoImageView.image = UIImage(named: "defaultMeal")
         }
     }
-    
     
     @IBAction func galleryImageTap(_ sender: UITapGestureRecognizer) {
         print("Opening gallery")
@@ -124,7 +134,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     private func fillFieldsWithMeal(meal: Meal){
-        newFoodText.text = meal.name
+        newFoodText.text = meal.name.capitalized
         photoImageView.image = meal.image!
     }
     

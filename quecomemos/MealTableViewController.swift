@@ -8,15 +8,13 @@
 
 import UIKit
 
-class MealTableViewController: UITableViewController {
+class MealTableViewController: UITableViewController, MealTableViewControllerDelegate {
 
     //MARK: Properties
     var meals = [Meal]()
     var editingButton: UIBarButtonItem!
     var addButton: UIBarButtonItem!
     var backButton: UIBarButtonItem!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +27,6 @@ class MealTableViewController: UITableViewController {
         }
         
     }
-    
     
     
     func initButtons(){
@@ -73,35 +70,14 @@ class MealTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue){
-        
-        if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
-            //Checks if there was a row selected
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                //Updates existing meal
-                meals[selectedIndexPath.row] = meal
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            } else {
-                //Add a new meal
-                let newIndexPath = IndexPath(item: meals.count, section: 0)
-                meals.append(meal)
-                tableView.insertRows(at: [newIndexPath], with: .bottom)
-            }
-            //Saves meals
-            saveMeals()
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Show Detail" ,
-           let mealDetailViewController = segue.destination as? MealViewController {
+        if let mealDetailViewController = segue.destination as? MealViewController {
             if let selectedMealCell = sender as? MealTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedMealCell)!
                 let selectedMeal = meals[indexPath.row]
                 mealDetailViewController.meal = selectedMeal
             }
-        } else if segue.identifier == "Add Meal" {
-            print("Adding new meal.")
+            mealDetailViewController.delegate = self
         }
     }
     
@@ -132,5 +108,21 @@ class MealTableViewController: UITableViewController {
     func loadMeals() -> [Meal]?{
         return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL!.path) as? [Meal]
     }
+    
+    func updateMeal(meal: Meal) {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            //Updates existing meal
+            meals[selectedIndexPath.row] = meal
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        } else {
+            //Add a new meal
+            let newIndexPath = IndexPath(item: meals.count, section: 0)
+            meals.append(meal)
+            tableView.insertRows(at: [newIndexPath], with: .bottom)
+        }
+        //Saves meals
+        saveMeals()
+    }
 
 }
+
