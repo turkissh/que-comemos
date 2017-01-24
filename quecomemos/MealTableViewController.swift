@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealTableViewController: UITableViewController, MealTableViewControllerDelegate {
+class MealTableViewController: UITableViewController {
 
     //MARK: Properties
     var meals = [Meal]()
@@ -109,6 +109,10 @@ class MealTableViewController: UITableViewController, MealTableViewControllerDel
         return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL!.path) as? [Meal]
     }
     
+}
+
+extension MealTableViewController : MealTableViewControllerDelegate {
+    
     func updateMeal(meal: Meal) {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             //Updates existing meal
@@ -123,6 +127,5 @@ class MealTableViewController: UITableViewController, MealTableViewControllerDel
         //Saves meals
         saveMeals()
     }
-
+    
 }
-
