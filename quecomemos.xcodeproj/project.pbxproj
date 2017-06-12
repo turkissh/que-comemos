@@ -15,6 +15,7 @@
 		C82E37851DB06DF100AF0F6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82E37841DB06DF100AF0F6C /* Assets.xcassets */; };
 		C82E37881DB06DF100AF0F6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82E37861DB06DF100AF0F6C /* LaunchScreen.storyboard */; };
 		C82E37931DB06DF100AF0F6C /* quecomemosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E37921DB06DF100AF0F6C /* quecomemosTests.swift */; };
+		C833534D1E5E8B2F002EFDC1 /* ModalMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833534C1E5E8B2F002EFDC1 /* ModalMealViewController.swift */; };
 		C84474EC1DB5CF42001C33FF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84474EB1DB5CF42001C33FF /* Meal.swift */; };
 		C8BBD9211DE297970025D8E1 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBD9201DE297970025D8E1 /* DiceViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		C82E378E1DB06DF100AF0F6C /* quecomemosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = quecomemosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82E37921DB06DF100AF0F6C /* quecomemosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quecomemosTests.swift; sourceTree = "<group>"; };
 		C82E37941DB06DF100AF0F6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C833534C1E5E8B2F002EFDC1 /* ModalMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMealViewController.swift; sourceTree = "<group>"; };
 		C84474EB1DB5CF42001C33FF /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C8BBD9201DE297970025D8E1 /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,8 +108,9 @@
 				C82CCDA01E3700870019E63A /* TableView */,
 				C82CCD9F1E3700580019E63A /* MealDomain */,
 				C8BBD9201DE297970025D8E1 /* DiceViewController.swift */,
+				C833534C1E5E8B2F002EFDC1 /* ModalMealViewController.swift */,
 				C82E37811DB06DF100AF0F6C /* Main.storyboard */,
-				C8789CD51E2F1900000702BE /* AppFiles */,
+				C8789CD51E2F1900000702BE /* Supporting Files */,
 			);
 			path = quecomemos;
 			sourceTree = "<group>";
@@ -121,7 +124,7 @@
 			path = quecomemosTests;
 			sourceTree = "<group>";
 		};
-		C8789CD51E2F1900000702BE /* AppFiles */ = {
+		C8789CD51E2F1900000702BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				C82E377D1DB06DF100AF0F6C /* AppDelegate.swift */,
@@ -129,7 +132,7 @@
 				C82E37861DB06DF100AF0F6C /* LaunchScreen.storyboard */,
 				C82E37891DB06DF100AF0F6C /* Info.plist */,
 			);
-			name = AppFiles;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +185,7 @@
 				TargetAttributes = {
 					C82E37791DB06DF100AF0F6C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = A876NJFJCE;
+						DevelopmentTeam = 2H692W4L6M;
 						ProvisioningStyle = Automatic;
 					};
 					C82E378D1DB06DF100AF0F6C = {
@@ -239,6 +242,7 @@
 				C84474EC1DB5CF42001C33FF /* Meal.swift in Sources */,
 				C82E37801DB06DF100AF0F6C /* MealViewController.swift in Sources */,
 				C80F13891DBF00B400E139D0 /* MealTableViewController.swift in Sources */,
+				C833534D1E5E8B2F002EFDC1 /* ModalMealViewController.swift in Sources */,
 				C8BBD9211DE297970025D8E1 /* DiceViewController.swift in Sources */,
 				C80F13871DBEFF7100E139D0 /* MealTableViewCell.swift in Sources */,
 				C82E377E1DB06DF100AF0F6C /* AppDelegate.swift in Sources */,
@@ -382,7 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A876NJFJCE;
+				DEVELOPMENT_TEAM = 2H692W4L6M;
 				INFOPLIST_FILE = quecomemos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.turkissh.quecomemos;
@@ -395,7 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A876NJFJCE;
+				DEVELOPMENT_TEAM = 2H692W4L6M;
 				INFOPLIST_FILE = quecomemos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.turkissh.quecomemos;

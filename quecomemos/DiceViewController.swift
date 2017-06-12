@@ -12,6 +12,7 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
 
     @IBOutlet weak var diceImage: UIImageView!
     var meals = [Meal]()
+    var randomMeal : Meal?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,37 +32,31 @@ class DiceViewController: UIViewController, UINavigationControllerDelegate{
     
     
     @IBAction func throwDices(_ sender: UITapGestureRecognizer) {
-        print("throwing dices")
-        UIView.animate(withDuration: 1) {
-            self.diceImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
-        }
         
-        UIView.animate(withDuration: 1, delay: 0.40, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.diceImage.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI * 2))
+        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            self.diceImage.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        }, completion: nil )
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5, options: UIViewAnimationOptions.curveEaseOut, animations: { () -> Void in
+            self.diceImage.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 2))
         }) { isFinished in self.showRandomMeal() }
         
     }
     
     func showRandomMeal() {
-        var meals = loadMeals()
-        if (meals != nil) {
-            let randomIndex = Int.getRandom(max: meals!.count)
-            let randomMeal = meals![randomIndex]
-            
-            //Create alert
-            let alert = UIAlertController(title: "Puedes comer:", message: "\(randomMeal.name.capitalized)", preferredStyle: .alert)
-            let height:NSLayoutConstraint = NSLayoutConstraint(item: alert.view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height * 0.50)
-            alert.view.addConstraint(height)
-            //Set alert button
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            
-            //Set alert image
-            let imageView = UIImageView(frame: CGRect(x: self.view.frame.width / 8, y: 130, width: self.view.frame.width / 2, height: self.view.frame.width / 2))
-            imageView.image = randomMeal.image
-            alert.view.addSubview(imageView)
-            
-            //Show alert
-            self.present(alert, animated: true, completion: nil)
+        if let meals = loadMeals() {
+            let randomIndex = Int.getRandom(max: meals.count)
+            randomMeal = meals[randomIndex]
+            performSegue(withIdentifier: "modalMealSegue", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "modalMealSegue" && randomMeal != nil {
+            if let destination = segue.destination as? ModalMealViewController {
+                destination.newMealName = randomMeal!.name
+                destination.newMealImage = randomMeal!.image
+            }
         }
     }
     

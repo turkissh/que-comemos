@@ -20,6 +20,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var newFoodText: UITextField!
     @IBOutlet weak var cleanButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var saveButton: UIBarButtonItem!
     var meal: Meal?
@@ -34,16 +35,16 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         if let editingMeal = self.meal {
             fillFieldsWithMeal(meal: editingMeal)
             self.cleanButton.isEnabled = false
-            navigationItem.title = "Editing"
+            navigationItem.title = "Editando"
         } else {
-            navigationItem.title = "Add meal"
+            navigationItem.title = "Agregar comida"
         }
         checkValidMealName()
     }
 
     //MARK: Button
     func createSaveButton(){
-        saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(saveMeal))
+        saveButton = UIBarButtonItem(title: "Guardar", style: UIBarButtonItemStyle.plain, target: self, action: #selector(saveMeal))
         navigationItem.rightBarButtonItem = saveButton
     }
     
@@ -65,7 +66,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         checkValidMealName()
-        navigationItem.title = "Adding \(newFoodText.text!)"
+        navigationItem.title = "Agregando \(newFoodText.text!)"
     }
 
     // MARK: UIImagePickerControllerDelegate
@@ -81,6 +82,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     //MARK: Navigation
     func saveMeal() {
+        spinner.startAnimating()
         let newMealName = newFoodText.text!
         let newMealImage = photoImageView.image
             
@@ -94,7 +96,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         }else{
             navigationController!.popViewController(animated: true)
         }
-
+        spinner.stopAnimating()
     }
     
     
@@ -107,12 +109,10 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     @IBAction func galleryImageTap(_ sender: UITapGestureRecognizer) {
-        print("Opening gallery")
         callPicker(UIImagePickerControllerSourceType.photoLibrary)
     }
     
     @IBAction func photoImageTap(_ sender: UITapGestureRecognizer) {
-        print("Opening picker")
         callPicker(UIImagePickerControllerSourceType.camera)
     }
     
