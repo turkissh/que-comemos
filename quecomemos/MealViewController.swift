@@ -13,7 +13,6 @@ protocol MealTableViewControllerDelegate {
     func updateMeal(meal: Meal)
 }
 
-
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     //MARK: Properties
@@ -30,6 +29,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         super.viewDidLoad()
         createSaveButton()
         newFoodText.delegate = self
+        spinner.hidesWhenStopped = true
         
         //Preload meal if comes from segue
         if let editingMeal = self.meal {
@@ -82,6 +82,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     //MARK: Navigation
     func saveMeal() {
+        spinner.isHidden = false
         spinner.startAnimating()
         let newMealName = newFoodText.text!
         let newMealImage = photoImageView.image

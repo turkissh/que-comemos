@@ -48,7 +48,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "rsz_0017_ios7_app-icon.png",
+      "filename" : "app-icon.png",
       "scale" : "2x"
     },
     {
@@ -120,6 +120,11 @@
       "idiom" : "ipad",
       "size" : "83.5x83.5",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "ios-marketing",
+      "size" : "1024x1024",
+      "scale" : "1x"
     }
   ],
   "info" : {
