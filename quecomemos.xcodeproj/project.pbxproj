@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		073F7B7E21D42B45318ABD64 /* Pods_quecomemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */; };
 		239A30E92BA7652A32962741 /* Pods_quecomemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81070753539DA1AFC6BCF7E7 /* Pods_quecomemos.framework */; };
-		C80F13871DBEFF7100E139D0 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F13861DBEFF7100E139D0 /* MealTableViewCell.swift */; };
 		C80F13891DBF00B400E139D0 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F13881DBF00B400E139D0 /* MealTableViewController.swift */; };
 		C82E377E1DB06DF100AF0F6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E377D1DB06DF100AF0F6C /* AppDelegate.swift */; };
 		C82E37801DB06DF100AF0F6C /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E377F1DB06DF100AF0F6C /* MealViewController.swift */; };
@@ -18,9 +17,17 @@
 		C82E37881DB06DF100AF0F6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82E37861DB06DF100AF0F6C /* LaunchScreen.storyboard */; };
 		C82E37931DB06DF100AF0F6C /* quecomemosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E37921DB06DF100AF0F6C /* quecomemosTests.swift */; };
 		C833534D1E5E8B2F002EFDC1 /* ModalMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C833534C1E5E8B2F002EFDC1 /* ModalMealViewController.swift */; };
-		C840150B207467D400DC163D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C840150A207467D400DC163D /* GoogleService-Info.plist */; };
 		C84474EC1DB5CF42001C33FF /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84474EB1DB5CF42001C33FF /* Meal.swift */; };
+		C8556ABA2076F9CF00C35B04 /* MealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8556AB92076F9CF00C35B04 /* MealRepository.swift */; };
 		C8BBD9211DE297970025D8E1 /* DiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBD9201DE297970025D8E1 /* DiceViewController.swift */; };
+		C8BF51282076FBE20041794E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF51272076FBE20041794E /* BaseViewController.swift */; };
+		C8BF512A2076FCA50041794E /* InMemoryMealRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF51292076FCA50041794E /* InMemoryMealRepository.swift */; };
+		C8BF512C207702DE0041794E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8BF512B207702DE0041794E /* GoogleService-Info.plist */; };
+		C8BF512E2077036D0041794E /* FindAllMeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF512D2077036D0041794E /* FindAllMeals.swift */; };
+		C8BF5130207708A70041794E /* DeleteMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF512F207708A70041794E /* DeleteMeal.swift */; };
+		C8BF5132207708D20041794E /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF5131207708D20041794E /* BaseAction.swift */; };
+		C8BF513420770A690041794E /* UpdateMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF513320770A690041794E /* UpdateMeal.swift */; };
+		C8BF513620770B290041794E /* CreateMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF513520770B290041794E /* CreateMeal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +46,6 @@
 		81070753539DA1AFC6BCF7E7 /* Pods_quecomemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quecomemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B67AAA5A165D157FF54AF3B /* Pods-quecomemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quecomemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-quecomemos/Pods-quecomemos.release.xcconfig"; sourceTree = "<group>"; };
 		A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quecomemosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C80F13861DBEFF7100E139D0 /* MealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		C80F13881DBF00B400E139D0 /* MealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		C82E377A1DB06DF100AF0F6C /* quecomemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quecomemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82E377D1DB06DF100AF0F6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,9 +58,17 @@
 		C82E37921DB06DF100AF0F6C /* quecomemosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quecomemosTests.swift; sourceTree = "<group>"; };
 		C82E37941DB06DF100AF0F6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C833534C1E5E8B2F002EFDC1 /* ModalMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMealViewController.swift; sourceTree = "<group>"; };
-		C840150A207467D400DC163D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C84474EB1DB5CF42001C33FF /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		C8556AB92076F9CF00C35B04 /* MealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRepository.swift; sourceTree = "<group>"; };
 		C8BBD9201DE297970025D8E1 /* DiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiceViewController.swift; sourceTree = "<group>"; };
+		C8BF51272076FBE20041794E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C8BF51292076FCA50041794E /* InMemoryMealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryMealRepository.swift; sourceTree = "<group>"; };
+		C8BF512B207702DE0041794E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8BF512D2077036D0041794E /* FindAllMeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAllMeals.swift; sourceTree = "<group>"; };
+		C8BF512F207708A70041794E /* DeleteMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMeal.swift; sourceTree = "<group>"; };
+		C8BF5131207708D20041794E /* BaseAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAction.swift; sourceTree = "<group>"; };
+		C8BF513320770A690041794E /* UpdateMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeal.swift; sourceTree = "<group>"; };
+		C8BF513520770B290041794E /* CreateMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeal.swift; sourceTree = "<group>"; };
 		D18EB2A01F8142ED3BA6A200 /* Pods-quecomemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quecomemosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-quecomemosTests/Pods-quecomemosTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,24 +112,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C82CCD9F1E3700580019E63A /* Meal */ = {
-			isa = PBXGroup;
-			children = (
-				C888E0991F0944B500B2E2C1 /* domain */,
-				C888E09A1F0944C500B2E2C1 /* controller */,
-			);
-			name = Meal;
-			sourceTree = "<group>";
-		};
-		C82CCDA01E3700870019E63A /* MealList */ = {
-			isa = PBXGroup;
-			children = (
-				C888E09B1F0944D800B2E2C1 /* domain */,
-				C888E09C1F0944DE00B2E2C1 /* controller */,
-			);
-			name = MealList;
-			sourceTree = "<group>";
-		};
 		C82E37711DB06DF000AF0F6C = {
 			isa = PBXGroup;
 			children = (
@@ -139,12 +135,11 @@
 		C82E377C1DB06DF100AF0F6C /* quecomemos */ = {
 			isa = PBXGroup;
 			children = (
-				C82CCDA01E3700870019E63A /* MealList */,
-				C82CCD9F1E3700580019E63A /* Meal */,
-				C8BBD9201DE297970025D8E1 /* DiceViewController.swift */,
-				C833534C1E5E8B2F002EFDC1 /* ModalMealViewController.swift */,
+				C8556ABB2076FA4000C35B04 /* Presentation */,
+				C8556AB62076F97D00C35B04 /* Actions */,
+				C8556AB72076F99300C35B04 /* Domain */,
+				C8556AB82076F9A600C35B04 /* Infrastructure */,
 				C82E37811DB06DF100AF0F6C /* Main.storyboard */,
-				C840150A207467D400DC163D /* GoogleService-Info.plist */,
 				C8789CD51E2F1900000702BE /* Supporting Files */,
 			);
 			path = quecomemos;
@@ -159,9 +154,50 @@
 			path = quecomemosTests;
 			sourceTree = "<group>";
 		};
+		C8556AB62076F97D00C35B04 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				C8BF5131207708D20041794E /* BaseAction.swift */,
+				C8BF512D2077036D0041794E /* FindAllMeals.swift */,
+				C8BF512F207708A70041794E /* DeleteMeal.swift */,
+				C8BF513320770A690041794E /* UpdateMeal.swift */,
+				C8BF513520770B290041794E /* CreateMeal.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		C8556AB72076F99300C35B04 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C84474EB1DB5CF42001C33FF /* Meal.swift */,
+				C8556AB92076F9CF00C35B04 /* MealRepository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C8556AB82076F9A600C35B04 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				C8BF51292076FCA50041794E /* InMemoryMealRepository.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		C8556ABB2076FA4000C35B04 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C8BF51262076FB540041794E /* List */,
+				C8BF51252076FB440041794E /* ABM */,
+				C8BF51242076FB320041794E /* Main */,
+				C8BF51272076FBE20041794E /* BaseViewController.swift */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
 		C8789CD51E2F1900000702BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C8BF512B207702DE0041794E /* GoogleService-Info.plist */,
 				C82E377D1DB06DF100AF0F6C /* AppDelegate.swift */,
 				C82E37841DB06DF100AF0F6C /* Assets.xcassets */,
 				C82E37861DB06DF100AF0F6C /* LaunchScreen.storyboard */,
@@ -170,36 +206,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C888E0991F0944B500B2E2C1 /* domain */ = {
+		C8BF51242076FB320041794E /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C84474EB1DB5CF42001C33FF /* Meal.swift */,
+				C8BBD9201DE297970025D8E1 /* DiceViewController.swift */,
+				C833534C1E5E8B2F002EFDC1 /* ModalMealViewController.swift */,
 			);
-			name = domain;
+			name = Main;
 			sourceTree = "<group>";
 		};
-		C888E09A1F0944C500B2E2C1 /* controller */ = {
+		C8BF51252076FB440041794E /* ABM */ = {
 			isa = PBXGroup;
 			children = (
 				C82E377F1DB06DF100AF0F6C /* MealViewController.swift */,
 			);
-			name = controller;
+			name = ABM;
 			sourceTree = "<group>";
 		};
-		C888E09B1F0944D800B2E2C1 /* domain */ = {
-			isa = PBXGroup;
-			children = (
-				C80F13861DBEFF7100E139D0 /* MealTableViewCell.swift */,
-			);
-			name = domain;
-			sourceTree = "<group>";
-		};
-		C888E09C1F0944DE00B2E2C1 /* controller */ = {
+		C8BF51262076FB540041794E /* List */ = {
 			isa = PBXGroup;
 			children = (
 				C80F13881DBF00B400E139D0 /* MealTableViewController.swift */,
 			);
-			name = controller;
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82E37881DB06DF100AF0F6C /* LaunchScreen.storyboard in Resources */,
-				C840150B207467D400DC163D /* GoogleService-Info.plist in Resources */,
+				C8BF512C207702DE0041794E /* GoogleService-Info.plist in Resources */,
 				C82E37851DB06DF100AF0F6C /* Assets.xcassets in Resources */,
 				C82E37831DB06DF100AF0F6C /* Main.storyboard in Resources */,
 			);
@@ -407,12 +436,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				C84474EC1DB5CF42001C33FF /* Meal.swift in Sources */,
+				C8BF513420770A690041794E /* UpdateMeal.swift in Sources */,
 				C82E37801DB06DF100AF0F6C /* MealViewController.swift in Sources */,
 				C80F13891DBF00B400E139D0 /* MealTableViewController.swift in Sources */,
+				C8BF513620770B290041794E /* CreateMeal.swift in Sources */,
 				C833534D1E5E8B2F002EFDC1 /* ModalMealViewController.swift in Sources */,
+				C8BF5132207708D20041794E /* BaseAction.swift in Sources */,
+				C8BF5130207708A70041794E /* DeleteMeal.swift in Sources */,
 				C8BBD9211DE297970025D8E1 /* DiceViewController.swift in Sources */,
-				C80F13871DBEFF7100E139D0 /* MealTableViewCell.swift in Sources */,
+				C8BF51282076FBE20041794E /* BaseViewController.swift in Sources */,
+				C8BF512E2077036D0041794E /* FindAllMeals.swift in Sources */,
+				C8556ABA2076F9CF00C35B04 /* MealRepository.swift in Sources */,
 				C82E377E1DB06DF100AF0F6C /* AppDelegate.swift in Sources */,
+				C8BF512A2076FCA50041794E /* InMemoryMealRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

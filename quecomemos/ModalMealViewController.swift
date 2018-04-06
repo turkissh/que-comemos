@@ -8,9 +8,8 @@
 
 import UIKit
 
-class ModalMealViewController: UIViewController {
+class ModalMealViewController: BaseViewController {
 
-    
     @IBOutlet weak var mealName: UILabel!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var confirmationButton: UIButton!

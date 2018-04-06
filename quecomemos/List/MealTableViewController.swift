@@ -8,31 +8,38 @@
 
 import UIKit
 
+class MealTableViewCell: UITableViewCell {
+    @IBOutlet weak var mealName: UILabel! {
+        willSet {
+            newValue.text = newValue.text?.capitalized
+        }
+    }
+    @IBOutlet weak var mealImage: UIImageView!
+}
+
 class MealTableViewController: UITableViewController {
 
-    //MARK: Properties
+    private let findAllMeals = FindAllMeals()
+    fileprivate let createMeal = CreateMeal()
+    private let deleteMeal = DeleteMeal()
+    fileprivate let updateMeal = UpdateMeal()
+    
     var meals = [Meal]()
     var editingButton: UIBarButtonItem!
     var addButton: UIBarButtonItem!
     var backButton: UIBarButtonItem!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
         initButtons()
-        self.navigationItem.rightBarButtonItem = editingButton
-        
-        if let savedMeals = loadMeals() {
-            meals += savedMeals
-        }
-        
+        meals = Array(findAllMeals.invoke())
+        super.viewDidLoad()
     }
     
-    
-    func initButtons(){
+    private func initButtons() {
         backButton = self.navigationItem.leftBarButtonItem
         editingButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector(showEditing))
         addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(callAddMeal))
+        self.navigationItem.rightBarButtonItem = editingButton
     }
     
 
@@ -45,7 +52,6 @@ class MealTableViewController: UITableViewController {
         return meals.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MealTableViewCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MealTableViewCell
@@ -63,9 +69,10 @@ class MealTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let mealToRemove = meals[indexPath.row]
+            
+            deleteMeal.invoke(mealToRemove)
             meals.remove(at: indexPath.row)
-            //Saves updated meals
-            saveMeals()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -97,18 +104,6 @@ class MealTableViewController: UITableViewController {
         performSegue(withIdentifier: "Add Meal", sender: self)
     }
     
-    //MARK: NSCoding
-    
-    func saveMeals(){
-        let isSuccesfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL!.path)
-        
-        print("Meal saved: " + isSuccesfulSave.description)
-    }
-    
-    func loadMeals() -> [Meal]?{
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL!.path) as? [Meal]
-    }
-    
 }
 
 extension MealTableViewController : MealTableViewControllerDelegate {
@@ -116,16 +111,21 @@ extension MealTableViewController : MealTableViewControllerDelegate {
     func updateMeal(meal: Meal) {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             //Updates existing meal
+            let exitingMeal = meals[selectedIndexPath.row]
             meals[selectedIndexPath.row] = meal
             tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            
+            updateMeal.invoke(existingMeal: exitingMeal, newMeal: meal)
         } else {
             //Add a new meal
             let newIndexPath = IndexPath(item: meals.count, section: 0)
             meals.append(meal)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
+            
+            createMeal.invoke(meal)
         }
-        //Saves meals
-        saveMeals()
+        
+        
     }
     
 }

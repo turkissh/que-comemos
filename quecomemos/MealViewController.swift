@@ -87,7 +87,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let newMealName = newFoodText.text!
         let newMealImage = photoImageView.image
             
-        meal = Meal(name: newMealName, image: newMealImage)
+        meal = Meal.create(withName: newMealName, withImage: newMealImage)
         delegate!.updateMeal(meal: meal!)
         
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
