@@ -1,11 +1,3 @@
-//
-//  ModalMealViewController.swift
-//  quecomemos
-//
-//  Created by Emiliano Di Pierro on 2/23/17.
-//  Copyright © 2017 Emiliano Di Pierro. All rights reserved.
-//
-
 import UIKit
 
 class ModalMealViewController: BaseViewController {

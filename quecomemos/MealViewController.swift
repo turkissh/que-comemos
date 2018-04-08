@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol MealTableViewControllerDelegate {
     func updateMeal(meal: Meal)
 }

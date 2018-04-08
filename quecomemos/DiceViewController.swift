@@ -4,8 +4,16 @@ class DiceViewController: BaseViewController, UINavigationControllerDelegate{
 
     @IBOutlet weak var diceImage: UIImageView!
     
-    private let findAllMeals = FindAllMeals()
-    private var randomMeal: Meal?
+    private let viewModel: DiceViewModel
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.viewModel = DiceViewModel(meals: FindAllMeals().invoke())
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     @IBAction func throwDices(_ sender: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
@@ -18,17 +26,15 @@ class DiceViewController: BaseViewController, UINavigationControllerDelegate{
     }
     
     private func showRandomMeal() {
-        let meals = findAllMeals.invoke()
-
-        if !meals.isEmpty {
-            randomMeal = meals.randomElement()
+        if viewModel.hasMeals() {
             performSegue(withIdentifier: "modalMealSegue", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "modalMealSegue" && randomMeal != nil {
+        if segue.identifier == "modalMealSegue" {
             if let destination = segue.destination as? ModalMealViewController {
+                let randomMeal = viewModel.getRandomMeal()
                 destination.newMealName = randomMeal!.name
                 destination.newMealImage = randomMeal!.image
             }
@@ -37,10 +43,4 @@ class DiceViewController: BaseViewController, UINavigationControllerDelegate{
 
 }
 
-extension Set {
-    public func randomElement() -> Element? {
-        let n = Int(arc4random_uniform(UInt32(self.count)))
-        let index = self.index(self.startIndex, offsetBy: n)
-        return self.count > 0 ? self[index] : nil
-    }
-}
+

@@ -1,11 +1,3 @@
-//
-//  MealTableViewController.swift
-//  quecomemos
-//
-//  Created by Emiliano Di Pierro on 10/24/16.
-//  Copyright © 2016 Emiliano Di Pierro. All rights reserved.
-//
-
 import UIKit
 
 class MealTableViewCell: UITableViewCell {
@@ -19,9 +11,8 @@ class MealTableViewCell: UITableViewCell {
 
 class MealTableViewController: UITableViewController {
 
-    private let findAllMeals = FindAllMeals()
-    fileprivate let createMeal = CreateMeal()
     private let deleteMeal = DeleteMeal()
+    fileprivate let createMeal = CreateMeal()
     fileprivate let updateMeal = UpdateMeal()
     
     var meals = [Meal]()
@@ -31,7 +22,7 @@ class MealTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         initButtons()
-        meals = Array(findAllMeals.invoke())
+        meals = Array(FindAllMeals().invoke())
         super.viewDidLoad()
     }
     
@@ -89,7 +80,7 @@ class MealTableViewController: UITableViewController {
     }
     
     func showEditing(sender: UIBarButtonItem){
-        if(self.tableView.isEditing == true) {
+        if (self.tableView.isEditing == true) {
             self.tableView.isEditing = false
             self.navigationItem.rightBarButtonItem?.title = "Edit"
             self.navigationItem.leftBarButtonItem = backButton
@@ -110,22 +101,25 @@ extension MealTableViewController : MealTableViewControllerDelegate {
     
     func updateMeal(meal: Meal) {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            //Updates existing meal
-            let exitingMeal = meals[selectedIndexPath.row]
-            meals[selectedIndexPath.row] = meal
-            tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            
-            updateMeal.invoke(existingMeal: exitingMeal, newMeal: meal)
+            update(existingMeal: meal, inIndex: selectedIndexPath)
         } else {
-            //Add a new meal
-            let newIndexPath = IndexPath(item: meals.count, section: 0)
-            meals.append(meal)
-            tableView.insertRows(at: [newIndexPath], with: .bottom)
-            
-            createMeal.invoke(meal)
+            create(meal: meal)
         }
-        
         
     }
     
+    private func update(existingMeal meal: Meal, inIndex selectedIndex: IndexPath) {
+        let exitingMeal = meals[selectedIndex.row]
+        meals[selectedIndex.row] = meal
+        tableView.reloadRows(at: [selectedIndex], with: .none)
+        updateMeal.invoke(existingMeal: exitingMeal, newMeal: meal)
+    }
+    
+    private func create(meal: Meal) {
+        let newIndexPath = IndexPath(item: meals.count, section: 0)
+        meals.append(meal)
+        tableView.insertRows(at: [newIndexPath], with: .bottom)
+        
+        createMeal.invoke(meal)
+    }
 }
