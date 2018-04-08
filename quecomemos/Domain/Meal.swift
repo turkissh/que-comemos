@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Meal: NSObject, NSCoding {
+class Meal: NSObject {
     
     //MARK: Properties
     let uuid: String
-    var name: String
+    let name: String
     var image: UIImage?
     
     static func create(withName name: String, withImage image: UIImage?) -> Meal {
@@ -27,27 +27,6 @@ class Meal: NSObject, NSCoding {
         self.name = name
         self.image = image
         super.init()
-    }
-    
-    //MARK: NSCoding
-    struct PropertyKey {
-        static let uuidKey = "u"
-        static let nameKey = "n"
-        static let photoKey = "p"
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(uuid, forKey: PropertyKey.uuidKey)
-        aCoder.encode(name, forKey: PropertyKey.nameKey)
-        aCoder.encode(image, forKey: PropertyKey.photoKey)
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        let uuid = aDecoder.decodeObject(forKey: PropertyKey.uuidKey) as! String
-        let name = aDecoder.decodeObject(forKey: PropertyKey.nameKey) as! String
-        let image = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as! UIImage
-        
-        self.init(uuid: uuid, name: name, image: image)
     }
     
     override func isEqual(_ object: Any?) -> Bool {

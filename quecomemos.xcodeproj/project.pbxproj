@@ -10,6 +10,7 @@
 		073F7B7E21D42B45318ABD64 /* Pods_quecomemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */; };
 		239A30E92BA7652A32962741 /* Pods_quecomemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81070753539DA1AFC6BCF7E7 /* Pods_quecomemos.framework */; };
 		C80F13891DBF00B400E139D0 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F13881DBF00B400E139D0 /* MealTableViewController.swift */; };
+		C815ED0A207AA42E005D6830 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815ED09207AA42E005D6830 /* MealModel.swift */; };
 		C82E377E1DB06DF100AF0F6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E377D1DB06DF100AF0F6C /* AppDelegate.swift */; };
 		C82E37801DB06DF100AF0F6C /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E377F1DB06DF100AF0F6C /* MealViewController.swift */; };
 		C82E37831DB06DF100AF0F6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82E37811DB06DF100AF0F6C /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		8B67AAA5A165D157FF54AF3B /* Pods-quecomemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quecomemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-quecomemos/Pods-quecomemos.release.xcconfig"; sourceTree = "<group>"; };
 		A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quecomemosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80F13881DBF00B400E139D0 /* MealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		C815ED09207AA42E005D6830 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		C82E377A1DB06DF100AF0F6C /* quecomemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quecomemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82E377D1DB06DF100AF0F6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C82E377F1DB06DF100AF0F6C /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,22 @@
 				A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C815ED07207AA405005D6830 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C815ED09207AA42E005D6830 /* MealModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C815ED08207AA410005D6830 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				C8BF51292076FCA50041794E /* InMemoryMealRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		C82E37711DB06DF000AF0F6C = {
@@ -178,7 +196,8 @@
 		C8556AB82076F9A600C35B04 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				C8BF51292076FCA50041794E /* InMemoryMealRepository.swift */,
+				C815ED08207AA410005D6830 /* Repositories */,
+				C815ED07207AA405005D6830 /* Model */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -437,6 +456,7 @@
 			files = (
 				C84474EC1DB5CF42001C33FF /* Meal.swift in Sources */,
 				C8BF513420770A690041794E /* UpdateMeal.swift in Sources */,
+				C815ED0A207AA42E005D6830 /* MealModel.swift in Sources */,
 				C82E37801DB06DF100AF0F6C /* MealViewController.swift in Sources */,
 				C80F13891DBF00B400E139D0 /* MealTableViewController.swift in Sources */,
 				C8BF513620770B290041794E /* CreateMeal.swift in Sources */,

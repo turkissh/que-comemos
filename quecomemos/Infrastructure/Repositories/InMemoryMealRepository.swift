@@ -11,8 +11,7 @@ class InMemoryMealRepository: MealRepository {
     }
     
     func findAll() -> Set<Meal> {
-        let meals = loadMeals() ?? loadSampleMeals()
-        return Set(meals)
+        return loadMeals() ?? loadSampleMeals()
     }
     
     func save(meal: Meal) {
@@ -30,11 +29,13 @@ class InMemoryMealRepository: MealRepository {
     }
     
     private func saveMeals(_ meals: Set<Meal>){
-        NSKeyedArchiver.archiveRootObject(meals, toFile: self.archiveURL.path)
+        let mealsRepresentation = meals.setmap { MealModel.from(meal: $0) }
+        NSKeyedArchiver.archiveRootObject(mealsRepresentation, toFile: self.archiveURL.path)
     }
     
     private func loadMeals() -> Set<Meal>?{
-        return NSKeyedUnarchiver.unarchiveObject(withFile: self.archiveURL.path) as? Set<Meal>
+        let mealsRepresentation = NSKeyedUnarchiver.unarchiveObject(withFile: self.archiveURL.path) as? Set<MealModel>
+        return mealsRepresentation?.setmap { Meal(uuid: $0.uuid, name: $0.name, image: $0.image)! }
     }
     
     //For testing
@@ -42,5 +43,11 @@ class InMemoryMealRepository: MealRepository {
         let mealExample = Meal.create(withName: "Milanesa", withImage: UIImage(named: "milanesa"))
         let mealExample2 = Meal.create(withName: "Hamburguesa", withImage: UIImage(named: "hamburguesa"))
         return Set(arrayLiteral: mealExample,mealExample2)
+    }
+}
+
+extension Set {
+    func setmap<U>(transform: (Element) -> U) -> Set<U> {
+        return Set<U>(self.lazy.map(transform))
     }
 }
