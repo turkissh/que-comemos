@@ -12,23 +12,20 @@ protocol MealTableViewControllerDelegate {
     func updateMeal(meal: Meal)
 }
 
-class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ABMMealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: Properties
     @IBOutlet weak var newFoodText: UITextField!
     @IBOutlet weak var cleanButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var saveButton: UIBarButtonItem!
     var meal: Meal?
     var delegate: MealTableViewControllerDelegate?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         createSaveButton()
         newFoodText.delegate = self
-        spinner.hidesWhenStopped = true
         
         //Preload meal if comes from segue
         if let editingMeal = self.meal {
@@ -39,6 +36,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             navigationItem.title = "Agregar comida"
         }
         checkValidMealName()
+        super.viewDidLoad()
     }
 
     //MARK: Button
@@ -48,7 +46,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     //MARK: UITextFiledDelegate
-    
     func checkValidMealName(){
         let text = newFoodText.text ?? ""
         saveButton.isEnabled = !text.isEmpty
@@ -79,35 +76,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
     }
     
-    //MARK: Navigation
-    func saveMeal() {
-        spinner.isHidden = false
-        spinner.startAnimating()
-        let newMealName = newFoodText.text!
-        let newMealImage = photoImageView.image
-            
-        meal = Meal.create(withName: newMealName, withImage: newMealImage)
-        delegate!.updateMeal(meal: meal!)
-        
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController
-        
-        if isPresentingInAddMealMode {
-            dismiss(animated: true, completion: nil)
-        }else{
-            navigationController!.popViewController(animated: true)
-        }
-        spinner.stopAnimating()
-    }
-    
-    
-    //MARK: Actions
-    @IBAction func cleanInfo(_ sender: UIButton) {
-        if self.meal == nil {
-            newFoodText.text = ""
-            photoImageView.image = UIImage(named: "defaultMeal")
-        }
-    }
-    
     @IBAction func galleryImageTap(_ sender: UITapGestureRecognizer) {
         callPicker(UIImagePickerControllerSourceType.photoLibrary)
     }
@@ -126,7 +94,30 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         present(imagePickerController,animated: true, completion: nil)
     }
     
+    //MARK: Navigation
+    func saveMeal() {
+        let newMealName = newFoodText.text!
+        let newMealImage = photoImageView.image
+        meal = Meal.create(withName: newMealName, withImage: newMealImage)
+        delegate!.updateMeal(meal: meal!)
+        
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        } else {
+            navigationController!.popViewController(animated: true)
+        }
+    }
     
+    
+    //MARK: Actions
+    @IBAction func cleanInfo(_ sender: UIButton) {
+        if self.meal == nil {
+            newFoodText.text = ""
+            photoImageView.image = UIImage(named: "defaultMeal")
+        }
+    }
     
     //MARK: Methods
     private func assingText(_ textToAssing: String) {

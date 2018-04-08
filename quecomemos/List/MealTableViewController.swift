@@ -69,7 +69,7 @@ class MealTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let mealDetailViewController = segue.destination as? MealViewController {
+        if let mealDetailViewController = segue.destination as? ABMMealViewController {
             if let selectedMealCell = sender as? MealTableViewCell {
                 let indexPath = tableView.indexPath(for: selectedMealCell)!
                 let selectedMeal = meals[indexPath.row]
