@@ -6,13 +6,9 @@ class DiceViewController: BaseViewController, UINavigationControllerDelegate{
     
     private let viewModel: DiceViewModel
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.viewModel = DiceViewModel(meals: FindAllMeals().invoke())
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.viewModel = DiceViewModel(meals: FindAllMeals().invoke())
+        super.init(coder: aDecoder)
     }
     
     @IBAction func throwDices(_ sender: UITapGestureRecognizer) {
