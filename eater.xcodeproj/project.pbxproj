@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0228CB2CD03A021971F15E90 /* Pods_eaterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D522B9561D7E4CB1FC0C2D /* Pods_eaterTests.framework */; };
 		073F7B7E21D42B45318ABD64 /* Pods_quecomemosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */; };
-		239A30E92BA7652A32962741 /* Pods_quecomemos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81070753539DA1AFC6BCF7E7 /* Pods_quecomemos.framework */; };
 		C80F13891DBF00B400E139D0 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F13881DBF00B400E139D0 /* MealTableViewController.swift */; };
 		C815ED0A207AA42E005D6830 /* MealModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815ED09207AA42E005D6830 /* MealModel.swift */; };
 		C815ED0C207AB7C0005D6830 /* DiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815ED0B207AB7C0005D6830 /* DiceViewModel.swift */; };
@@ -31,6 +31,7 @@
 		C8BF5132207708D20041794E /* BaseAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF5131207708D20041794E /* BaseAction.swift */; };
 		C8BF513420770A690041794E /* UpdateMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF513320770A690041794E /* UpdateMeal.swift */; };
 		C8BF513620770B290041794E /* CreateMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BF513520770B290041794E /* CreateMeal.swift */; };
+		F6BAB7027655D52F8EA8B4FB /* Pods_eater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69170CEF21BC2501DCF45763 /* Pods_eater.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +45,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0256758A6F0DFC46A31865A5 /* Pods-eater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eater/Pods-eater.debug.xcconfig"; sourceTree = "<group>"; };
+		1A006EAC9FC9A1960680EADC /* Pods-eaterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eaterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eaterTests/Pods-eaterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3CA9F4764F6383009ECB863F /* Pods-quecomemos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quecomemos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quecomemos/Pods-quecomemos.debug.xcconfig"; sourceTree = "<group>"; };
+		69170CEF21BC2501DCF45763 /* Pods_eater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7FAD27524273A9075F119B /* Pods-quecomemosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quecomemosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quecomemosTests/Pods-quecomemosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81070753539DA1AFC6BCF7E7 /* Pods_quecomemos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quecomemos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B67AAA5A165D157FF54AF3B /* Pods-quecomemos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quecomemos.release.xcconfig"; path = "Pods/Target Support Files/Pods-quecomemos/Pods-quecomemos.release.xcconfig"; sourceTree = "<group>"; };
 		A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quecomemosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4D522B9561D7E4CB1FC0C2D /* Pods_eaterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eaterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C80F13881DBF00B400E139D0 /* MealTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		C815ED09207AA42E005D6830 /* MealModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealModel.swift; sourceTree = "<group>"; };
 		C815ED0B207AB7C0005D6830 /* DiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +81,8 @@
 		C8BF513320770A690041794E /* UpdateMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMeal.swift; sourceTree = "<group>"; };
 		C8BF513520770B290041794E /* CreateMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeal.swift; sourceTree = "<group>"; };
 		D18EB2A01F8142ED3BA6A200 /* Pods-quecomemosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quecomemosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-quecomemosTests/Pods-quecomemosTests.release.xcconfig"; sourceTree = "<group>"; };
+		DEA9424C5161D0EF46F02D9A /* Pods-eaterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eaterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eaterTests/Pods-eaterTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD757EA98EA196AC05CC493B /* Pods-eater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eater.release.xcconfig"; path = "Pods/Target Support Files/Pods-eater/Pods-eater.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				239A30E92BA7652A32962741 /* Pods_quecomemos.framework in Frameworks */,
+				F6BAB7027655D52F8EA8B4FB /* Pods_eater.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				073F7B7E21D42B45318ABD64 /* Pods_quecomemosTests.framework in Frameworks */,
+				0228CB2CD03A021971F15E90 /* Pods_eaterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +113,10 @@
 				8B67AAA5A165D157FF54AF3B /* Pods-quecomemos.release.xcconfig */,
 				6B7FAD27524273A9075F119B /* Pods-quecomemosTests.debug.xcconfig */,
 				D18EB2A01F8142ED3BA6A200 /* Pods-quecomemosTests.release.xcconfig */,
+				0256758A6F0DFC46A31865A5 /* Pods-eater.debug.xcconfig */,
+				FD757EA98EA196AC05CC493B /* Pods-eater.release.xcconfig */,
+				1A006EAC9FC9A1960680EADC /* Pods-eaterTests.debug.xcconfig */,
+				DEA9424C5161D0EF46F02D9A /* Pods-eaterTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -114,6 +126,8 @@
 			children = (
 				81070753539DA1AFC6BCF7E7 /* Pods_quecomemos.framework */,
 				A6FC6E24F806CB4A3A9CB581 /* Pods_quecomemosTests.framework */,
+				69170CEF21BC2501DCF45763 /* Pods_eater.framework */,
+				B4D522B9561D7E4CB1FC0C2D /* Pods_eaterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -369,13 +383,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eater/Pods-eater-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-quecomemos/Pods-quecomemos-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eater/Pods-eater-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2158E868F06243291D865C64 /* [CP] Check Pods Manifest.lock */ = {
@@ -384,13 +401,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eater-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		85D64D0CF8BF6CCADDD64AB9 /* [CP] Embed Pods Frameworks */ = {
@@ -405,7 +425,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-quecomemosTests/Pods-quecomemosTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eaterTests/Pods-eaterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AC5FA95F14B4E720BBF2DA5D /* [CP] Check Pods Manifest.lock */ = {
@@ -414,13 +434,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eaterTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BE38261F4086C4828744F420 /* [CP] Copy Pods Resources */ = {
@@ -435,7 +458,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-quecomemos/Pods-quecomemos-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eater/Pods-eater-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C5B94753A6EFA54A56D2EDFA /* [CP] Copy Pods Resources */ = {
@@ -450,7 +473,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-quecomemosTests/Pods-quecomemosTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eaterTests/Pods-eaterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -631,7 +654,7 @@
 		};
 		C82E37981DB06DF100AF0F6C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CA9F4764F6383009ECB863F /* Pods-quecomemos.debug.xcconfig */;
+			baseConfigurationReference = 0256758A6F0DFC46A31865A5 /* Pods-eater.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2H692W4L6M;
@@ -647,7 +670,7 @@
 		};
 		C82E37991DB06DF100AF0F6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B67AAA5A165D157FF54AF3B /* Pods-quecomemos.release.xcconfig */;
+			baseConfigurationReference = FD757EA98EA196AC05CC493B /* Pods-eater.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2H692W4L6M;
@@ -663,7 +686,7 @@
 		};
 		C82E379B1DB06DF100AF0F6C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B7FAD27524273A9075F119B /* Pods-quecomemosTests.debug.xcconfig */;
+			baseConfigurationReference = 1A006EAC9FC9A1960680EADC /* Pods-eaterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -678,7 +701,7 @@
 		};
 		C82E379C1DB06DF100AF0F6C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D18EB2A01F8142ED3BA6A200 /* Pods-quecomemosTests.release.xcconfig */;
+			baseConfigurationReference = DEA9424C5161D0EF46F02D9A /* Pods-eaterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
