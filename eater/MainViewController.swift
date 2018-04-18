@@ -2,7 +2,6 @@ import UIKit
 
 class MainViewController: BaseViewController {
     
-    @IBOutlet weak var decideForMeButton: UIButton!
     @IBOutlet weak var mealTableView: UITableView!
     private let viewModel: DiceViewModel
     
@@ -15,19 +14,14 @@ class MainViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
-        UIApplication.shared.statusBarStyle = .lightContent
-        setButton()
         mealTableView.delegate = self
         mealTableView.dataSource = self
-        meals = Array(FindAllMeals().invoke())
         super.viewDidLoad()
     }
     
-    private func setButton() {
-        decideForMeButton.backgroundColor = Constants.Colors.greenButtonColor
-        decideForMeButton.layer.cornerRadius = Constants.Buttons.borderRadius
-        decideForMeButton.layer.borderWidth = Constants.Buttons.borderWidth
-        decideForMeButton.layer.borderColor = UIColor.white.cgColor
+    override func viewWillAppear(_ animated: Bool) {
+        meals = Array(FindAllMeals().invoke())
+        mealTableView.reloadData()
     }
     
     //MARK: Actions
