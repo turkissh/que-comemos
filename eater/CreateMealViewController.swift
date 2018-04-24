@@ -1,6 +1,6 @@
 import UIKit
 
-class CreateMealViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate {
+class CreateMealViewController: UIViewController, UINavigationControllerDelegate {
     
     //MARK: Properties
     @IBOutlet weak var newFoodName: UITextField!
@@ -13,6 +13,9 @@ class CreateMealViewController: UIViewController, UITextViewDelegate, UINavigati
     
     override func viewDidLoad() {
         newFoodName.delegate = self
+        newFoodPlace.delegate = self
+        newFoodDescription.delegate = self
+        newFoodDescription.layer.cornerRadius = Constants.Buttons.borderRadius
         checkValidMealName()
         super.viewDidLoad()
     }
@@ -53,7 +56,7 @@ class CreateMealViewController: UIViewController, UITextViewDelegate, UINavigati
     }
 }
 
-extension CreateMealViewController : UITextFieldDelegate {
+extension CreateMealViewController : UITextFieldDelegate, UITextViewDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         saveButton.isEnabled = false
     }
@@ -65,6 +68,12 @@ extension CreateMealViewController : UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         checkValidMealName()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        newFoodName.endEditing(true)
+        newFoodPlace.endEditing(true)
+        newFoodDescription.endEditing(true)
     }
 }
 
