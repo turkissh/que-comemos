@@ -3,27 +3,41 @@ import UIKit
 class MainViewController: BaseViewController {
     
     @IBOutlet weak var mealTableView: UITableView!
-    private let viewModel: DiceViewModel
-    
-    var meals = [Meal]()
+    private var viewModel: DiceViewModel
+    private var shouldLoadMeals: Bool = false
+    private var repositoryMeals: Set<Meal>
+    fileprivate var meals = [Meal]()
     
     //MARK: Setup
     required init?(coder aDecoder: NSCoder) {
-        self.viewModel = DiceViewModel(meals: FindAllMeals().invoke())
+        repositoryMeals = FindAllMeals().invoke()
+        meals = Array(repositoryMeals)
+        self.viewModel = DiceViewModel(meals: repositoryMeals)
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         mealTableView.delegate = self
         mealTableView.dataSource = self
         mealTableView.bounces = false
-        super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        shouldLoadMeals = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        meals = Array(FindAllMeals().invoke())
-        mealTableView.reloadData()
-        mealTableView.setContentOffset(CGPoint.zero, animated: true)
+        super.viewDidAppear(animated)
+        if shouldLoadMeals {
+            self.repositoryMeals = FindAllMeals().invoke()
+            meals = Array(repositoryMeals)
+            self.viewModel.updateMeals(meals: repositoryMeals)
+            mealTableView.reloadData()
+            mealTableView.setContentOffset(CGPoint.zero, animated: true)
+            shouldLoadMeals = false
+        }
     }
     
     //MARK: Actions

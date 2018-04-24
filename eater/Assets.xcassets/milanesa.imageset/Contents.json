@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "milanesa_de_carne-1.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "milanesa-milanesas-rincon_gourmet-plato-comida_CLAIMA20150320_7998_27.jpg",
+      "filename" : "milanesa_de_carne.jpg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "milanesa_de_carne-2.jpg",
       "scale" : "3x"
     }
   ],

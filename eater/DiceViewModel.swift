@@ -2,9 +2,13 @@ import Foundation
 
 class DiceViewModel {
     
-    private let meals: Set<Meal>
+    private var meals: Set<Meal>
     
     init(meals: Set<Meal>) {
+        self.meals = meals
+    }
+    
+    func updateMeals(meals: Set<Meal>) {
         self.meals = meals
     }
     
