@@ -9,6 +9,8 @@ class ModalMealViewController: BaseViewController {
     @IBOutlet weak var mealDescription: UILabel!
     
     var newMealName : String?
+    var newMealPlace : String?
+    var newMealNotes : String?
     var newMealImage : UIImage?
 
     override func viewDidLoad() {
@@ -17,8 +19,8 @@ class ModalMealViewController: BaseViewController {
         
         mealName.text = newMealName
         mealImage.image = newMealImage
-        mealPlace.text = "Un lugar"
-        mealDescription.text = "esta es alta descripcion wachin anda a comer"
+        mealPlace.text = newMealPlace
+        mealDescription.text = newMealNotes
     }
     
     @IBAction func dismissTapped(_ sender: EaterButton) {

@@ -35,13 +35,19 @@ class InMemoryMealRepository: MealRepository {
     
     private func loadMeals() -> Set<Meal>?{
         let mealsRepresentation = NSKeyedUnarchiver.unarchiveObject(withFile: self.archiveURL.path) as? Set<MealModel>
-        return mealsRepresentation?.setmap { Meal(uuid: $0.uuid, name: $0.name, image: $0.image)! }
+        return mealsRepresentation?.setmap { Meal(uuid: $0.uuid, name: $0.name, place: $0.place, notes: $0.notes, image: $0.image)! }
     }
     
     //For testing
     private func loadSampleMeals() -> Set<Meal> {
-        let mealExample = Meal.create(withName: "Milanesa", withImage: UIImage(named: "milanesa"))
-        let mealExample2 = Meal.create(withName: "Hamburguesa", withImage: UIImage(named: "hamburguesa"))
+        let mealExample = Meal.create(withName: "Milanesa",
+                                      withPlace: "El club de la milanesa",
+                                      withNotes: "Clasico argentino",
+                                      withImage: UIImage(named: "milanesa"))
+        let mealExample2 = Meal.create(withName: "Hamburguesa",
+                                       withPlace: "Gaboto",
+                                       withNotes: "Nada como una buena hamburguesa",
+                                       withImage: UIImage(named: "hamburguesa"))
         return Set(arrayLiteral: mealExample,mealExample2)
     }
 }

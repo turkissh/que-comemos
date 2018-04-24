@@ -52,6 +52,8 @@ class MainViewController: BaseViewController {
             if let destination = segue.destination as? ModalMealViewController {
                 let randomMeal = viewModel.getRandomMeal()
                 destination.newMealName = randomMeal!.name
+                destination.newMealPlace = randomMeal!.place
+                destination.newMealNotes = randomMeal!.notes
                 destination.newMealImage = randomMeal!.image
             }
         }

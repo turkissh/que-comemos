@@ -50,7 +50,7 @@ class CreateMealViewController: UIViewController, UINavigationControllerDelegate
     }
     
     @IBAction func tapSave(_ sender: EaterButton) {
-        let newMeal = Meal.create(withName: newFoodName.text!, withImage: newFoodImage.image)
+        let newMeal = Meal.create(withName: newFoodName.text!, withPlace: newFoodPlace.text!, withNotes: newFoodDescription.text!, withImage: newFoodImage.image)
         createMeal.invoke(newMeal)
         dismiss(animated: true, completion: nil)
     }
