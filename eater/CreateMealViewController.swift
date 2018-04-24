@@ -35,7 +35,11 @@ class CreateMealViewController: UIViewController, UITextViewDelegate, UINavigati
     
     //Buttons tap
     @IBAction func tapCamera(_ sender: UIButton) {
-        callPicker(.photoLibrary)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Take Photo", style: .default) { _ in self.callPicker(.camera) })
+        alert.addAction( UIAlertAction(title: "Choose Photo", style: .default) { _ in self.callPicker(.photoLibrary) })
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func tapBack(_ sender: UIButton) {

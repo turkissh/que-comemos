@@ -23,7 +23,7 @@ class EaterButton: UIButton {
     
     private func setProperties() {
         self.tintColor = UIColor.white
-        self.titleLabel?.font = UIFont(name: "Roboto", size: 24)
+        self.titleLabel?.font = UIFont(name: "Roboto", size: 28)
         self.backgroundColor = Constants.Colors.greenButtonColor
         self.layer.cornerRadius = Constants.Buttons.borderRadius
         self.layer.borderWidth = Constants.Buttons.borderWidth

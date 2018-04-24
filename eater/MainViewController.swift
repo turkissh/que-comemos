@@ -16,12 +16,14 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         mealTableView.delegate = self
         mealTableView.dataSource = self
+        mealTableView.bounces = false
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         meals = Array(FindAllMeals().invoke())
         mealTableView.reloadData()
+        mealTableView.setContentOffset(CGPoint.zero, animated: true)
     }
     
     //MARK: Actions
